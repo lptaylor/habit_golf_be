@@ -39,7 +39,8 @@ jobs:
           name: install dependencies
           command: |
             gem install bundler
-            bundle install --full-index
+            bundle update rails
+            bundle install 
 
       - run: bundle exec rake db:{drop,create,migrate,seed}
       - run: bundle exec rake db:schema:load
