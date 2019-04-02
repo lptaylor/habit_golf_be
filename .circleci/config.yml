@@ -39,7 +39,7 @@ jobs:
           name: install dependencies
           command: |
             sudo gem install bundler
-            bundle check || bundle install
+            sudo bundle check || sudo bundle install
 
       - run: bundle exec rake db:{drop,create,migrate,seed}
       - run: bundle exec rake db:schema:load
