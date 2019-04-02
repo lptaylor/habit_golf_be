@@ -38,6 +38,7 @@ jobs:
       - run:
           name: install dependencies
           command: |
+            sudo gem uninstall bundler
             sudo gem install bundler
             sudo bundle check || sudo bundle install
 
