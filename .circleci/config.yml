@@ -49,7 +49,11 @@ jobs:
       - run: bundle exec rake db:schema:load
 
       - run: bundle exec rspec
-
+  deploy:
+    docker:
+      - image: buildpack-deps:trusty
+    steps:
+      - checkout
       - run:
           name: Deploy Master to Heroku
           command: |
