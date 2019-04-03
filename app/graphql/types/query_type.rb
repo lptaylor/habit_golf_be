@@ -22,6 +22,18 @@ module Types
       argument :id, Integer, required: true
     end
 
+    field :clubs, [ClubType], null: false do
+      argument :style_of_club, Integer, required: false
+    end
+
+    def clubs(**args)
+      if args[:style_of_club]
+        Club.find(args[:style_of_club])
+      else
+        Club.all
+      end
+    end
+
     def shots(**args)
       if args[:ids]
         Shot.find(args[:ids])
