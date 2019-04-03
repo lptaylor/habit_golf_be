@@ -14,6 +14,26 @@ module Types
       argument :ids, [Integer], required: false
     end
 
+    field :shots, [ShotType], null: false do
+      argument :ids, [Integer], required: false
+    end
+
+    field :shot, [ShotType], null: false do
+      argument :id, Integer, required: true
+    end
+
+    def shots(**args)
+      if args[:ids]
+        Shot.find(args[:ids])
+      else
+        Shot.all
+      end
+    end
+
+    def shot(id:)
+      Shot.where(id: id)
+    end
+
     def player(id:)
       Player.where(id: id)
     end
