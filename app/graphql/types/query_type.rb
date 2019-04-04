@@ -12,15 +12,20 @@ module Types
 
     field :shots, [ShotType], null: false do
       argument :ids, [Integer], required: false
+      argument :rating, [Integer], required: false
     end
 
     field :clubs, [ClubType], null: false do
-      argument :style_of_club, Integer, required: false
+      argument :style_of_club, [Integer], required: false
+      argument :ids, [Integer], required: false
     end
 
     def clubs(**args)
       if args[:ids]
         Club.find(args[:ids])
+      elsif
+        args[:style_of_club]
+        Club.where(style_of_club: args[:style_of_club])
       else
         Club.all
       end
@@ -29,6 +34,9 @@ module Types
     def shots(**args)
       if args[:ids]
         Shot.find(args[:ids])
+      elsif
+        args[:rating]
+        Shot.where(rating: args[:rating])
       else
         Shot.all
       end
