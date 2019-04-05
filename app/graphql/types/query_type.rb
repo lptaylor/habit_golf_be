@@ -21,6 +21,14 @@ module Types
       argument :ids, [Integer], required: false
     end
 
+    field :player_stats, [PlayerStatType], null: false do
+      argument :player_id, Integer, required: true
+    end
+
+    def player_stats(**args)
+        PlayerStat.where(player_id: args[:player_id])
+    end
+
     def clubs(**args)
       if args[:ids]
         Club.find(args[:ids])
