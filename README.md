@@ -51,6 +51,7 @@ Additionally, a CORS package has been added to allow you to consume this API wit
 The frontend for this app and it's documentation can be found at https://github.com/ericweissman/habit-golf-fe.
 
 ## Queries
+All responses return a JSON object with the queried fields available.
 
 ### Important
 These queries can be run in POSTMAN to check they are working in the production environment by running the development server as described above by using the graphiql IDE and sending a request with the network developer tools tab open. If you click on the request and right clicking (Windows) or ctrl+click (Mac) and copying the request as cURL. From there open POSTMAN and click import paste the raw text into the box and set the request type to POST and the url from http://localhost:3000/graphiql to https://habit-golf-api.herokuapp.com/graphql).
@@ -90,6 +91,20 @@ There are two optional arguments for clubs query if none given will return all c
 }
 ```
 
+### Player Statistics
+The playerId argument is required.
+```
+{
+  playerStats(playerId: 1){
+    playerId
+    greatShotPercentage
+    hookPercentage
+    pullPercentage
+    pushPercentage
+    slicePercentage
+  }
+}
+```
 ## Nested queries
 
 ### Clubs and Shots
