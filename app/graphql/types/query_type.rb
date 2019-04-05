@@ -13,6 +13,7 @@ module Types
     field :shots, [ShotType], null: false do
       argument :ids, [Integer], required: false
       argument :rating, [Integer], required: false
+      argument :player_ids, [Integer], required: false
     end
 
     field :clubs, [ClubType], null: false do
@@ -37,6 +38,9 @@ module Types
       elsif
         args[:rating]
         Shot.where(rating: args[:rating])
+      elsif
+        args[:player_ids]
+        Shot.where(rating: args[:player_ids])
       else
         Shot.all
       end
