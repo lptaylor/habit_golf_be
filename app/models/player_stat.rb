@@ -3,7 +3,7 @@ class PlayerStat < ApplicationRecord
 
 
   def self.stats(rating, player_id)
-    (Shot.where("shots.player_id = #{player_id} AND shots.rating = #{rating}")).count / (Shot.where(player_id: player_id)).count * 100
+    (((Shot.where("shots.player_id = #{player_id} AND shots.rating = #{rating}")).count).to_f / (Shot.where(player_id: player_id)).count * 100).round
   end
 
   def self.determine_shot_type(rating)
