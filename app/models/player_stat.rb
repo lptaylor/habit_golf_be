@@ -18,6 +18,8 @@ class PlayerStat < ApplicationRecord
       "push_percentage"
     when 5
       "slice_percentage"
+    when 6
+      "duff_percentage"
     end
   end
 
