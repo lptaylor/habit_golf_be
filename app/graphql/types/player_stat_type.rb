@@ -6,5 +6,6 @@ module Types
     field :great_shot_percentage, Float, null: false
     field :push_percentage, Float, null: false
     field :slice_percentage, Float, null: false
+    field :duff_percentage, Float, null: false
   end
 end
