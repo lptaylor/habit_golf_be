@@ -49,8 +49,8 @@ RSpec.describe PlayerStat, type: :model do
 
       PlayerStat.update_today(@player_2.id)
 
-      expect(hook).to eq(20)
-      expect(pull).to eq(0)
+      expect(hook).to eq(0)
+      expect(pull).to eq(20)
       expect(great).to eq(20)
       expect(push).to eq(20)
       expect(slice).to eq(20)
