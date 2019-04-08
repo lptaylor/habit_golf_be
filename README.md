@@ -102,6 +102,11 @@ The playerId argument is required.
     pullPercentage
     pushPercentage
     slicePercentage
+    todayGreatShotPercentage
+    todayHookPercentage
+    todayPullPercentage
+    todayPushPercentage
+    todaySlicePercentage
   }
 }
 ```
@@ -128,10 +133,36 @@ Same optional arguments apply as the basic queries but you can also grab shots b
 #### Create Player
 All Fields are required!
 ```
-mutation{createPlayer(name: "someName", email: "someEmail", password: "somePassword")
+mutation{
+	createPlayer(name: "someName", email: "someEmail", password: "somePassword")
 	{
     id
     name
+  }
+}
+```
+
+#### Create Shot
+All Fields are required!
+```
+mutation{
+	createShot(clubId: 1, rating: 1, playerId: 1)
+	{
+	  id
+	  rating
+	  clubId
+	  playerId
+	}
+}
+```
+
+#### Delete Shot
+All Fields are required!
+```
+mutation{
+deleteShot(id:1)
+  {
+    id
   }
 }
 ```
