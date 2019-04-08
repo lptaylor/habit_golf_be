@@ -29,14 +29,6 @@ module Types
       argument :player_id, Integer, required: true
     end
 
-    def player_stat_today(**args)
-      # PlayerStat.where(player_id: args[:player_id]).find_all(PlayerStat.all[0].player.shots.created_at.to_date = Time.now.utc.to_date)
-
-      # PlayerStat.where(player_id: args[:player_id].where(Shot.where(created_at: (Time.now.midnight - 1.day)..Time.now.midnight)))
-
-      # Shot.where(created_at: (Time.now.midnight - 1.day)..Time.now.midnight)
-    end
-
     def player_stats(**args)
       PlayerStat.where(player_id: args[:player_id])
     end
