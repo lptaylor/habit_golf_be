@@ -47,7 +47,7 @@ RSpec.describe PlayerStat, type: :model do
       slice = PlayerStat.today_stats(5, @player_2.id)
       duff = PlayerStat.today_stats(6, @player_2.id)
 
-      PlayerStat.update_today(@player_2.id)
+      PlayerStat.update_stats(@player_2.id)
 
       expect(hook).to eq(0)
       expect(pull).to eq(20)

@@ -15,16 +15,12 @@ class PlayerStat < ApplicationRecord
                                         great_shot_percentage: "#{stats(3,player_id)}",
                                         push_percentage: "#{stats(4,player_id)}",
                                         slice_percentage: "#{stats(5,player_id)}",
-                                        duff_percentage: "#{stats(6,player_id)}"})
-  end
-
-  def self.update_today(player_id)
-
-    where(player_id: player_id).update({hook_percentage: "#{today_stats(1,player_id)}",
-                                        pull_percentage: "#{today_stats(2,player_id)}",
-                                        great_shot_percentage: "#{today_stats(3,player_id)}",
-                                        push_percentage: "#{today_stats(4,player_id)}",
-                                        slice_percentage: "#{today_stats(5,player_id)}",
-                                        duff_percentage: "#{today_stats(6,player_id)}"})
+                                        duff_percentage: "#{stats(6,player_id)}",
+                                        today_hook_percentage: "#{today_stats(1,player_id)}",
+                                        today_pull_percentage: "#{today_stats(2,player_id)}",
+                                        today_great_shot_percentage: "#{today_stats(3,player_id)}",
+                                        today_push_percentage: "#{today_stats(4,player_id)}",
+                                        today_slice_percentage: "#{today_stats(5,player_id)}",
+                                        today_duff_percentage: "#{today_stats(6,player_id)}"})
   end
 end
