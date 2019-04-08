@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_06_195549) do
+ActiveRecord::Schema.define(version: 2019_04_07_203827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,18 @@ ActiveRecord::Schema.define(version: 2019_04_06_195549) do
     t.datetime "updated_at", null: false
     t.bigint "player_id"
     t.float "duff_percentage"
+    t.float "today_hook_percentage"
+    t.float "today_pull_percentage"
+    t.float "today_duff_percentage"
+    t.float "today_slice_percentage"
+    t.float "today_great_shot_percentage"
+    t.float "today_push_percentage"
+    t.float "week_hook_percentage"
+    t.float "week_pull_percentage"
+    t.float "week_duff_percentage"
+    t.float "week_slice_percentage"
+    t.float "week_great_shot_percentage"
+    t.float "week_push_percentage"
     t.index ["player_id"], name: "index_player_stats_on_player_id"
   end
 

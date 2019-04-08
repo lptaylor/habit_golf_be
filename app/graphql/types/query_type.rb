@@ -25,8 +25,12 @@ module Types
       argument :player_id, Integer, required: true
     end
 
+    field :player_stat_today, [PlayerStatType], null: false do
+      argument :player_id, Integer, required: true
+    end
+
     def player_stats(**args)
-        PlayerStat.where(player_id: args[:player_id])
+      PlayerStat.where(player_id: args[:player_id])
     end
 
     def clubs(**args)
