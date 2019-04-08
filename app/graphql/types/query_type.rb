@@ -52,7 +52,7 @@ module Types
         Shot.where(rating: args[:rating])
       elsif
         args[:player_ids]
-        Shot.where(rating: args[:player_ids])
+        Shot.where(player_id: args[:player_ids])
       else
         Shot.all
       end
