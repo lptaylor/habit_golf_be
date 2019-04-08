@@ -5,7 +5,7 @@ describe 'Shot Query', type: :request do
   before(:each) do
     @player = Player.create(id: 100, name: "Happy Gilmore", email: "happy@gmail.com", password: "password")
     @club = Club.create(style_of_club: 1, id: 1)
-    @club.shots.create(rating: 1, player_id: @player.id, id: 1)
+    @club.shots.create(rating: 1, player_id: @player.id, id: 100)
     @club.shots.create(rating: 2, player_id: @player.id)
     @club.shots.create(rating: 3, player_id: @player.id)
     @club.shots.create(rating: 4, player_id: @player.id)
@@ -94,7 +94,7 @@ describe 'Shot Query', type: :request do
     def query
       <<~GQL
         query {
-          shots(ids: 1)
+          shots(ids: 100)
           {
             id
             rating
@@ -109,7 +109,7 @@ describe 'Shot Query', type: :request do
     json = JSON.parse(response.body, symbolize_names: true)
     expect(response.status).to eq(200)
     expect(json[:data][:shots].length).to eq(1)
-    expect(json[:data][:shots][0][:id]).to eq("1")
+    expect(json[:data][:shots][0][:id]).to eq("100")
     expect(json[:data][:shots][0]).to have_key(:id)
     expect(json[:data][:shots][0]).to have_key(:rating)
     expect(json[:data][:shots][0]).to have_key(:clubId)
