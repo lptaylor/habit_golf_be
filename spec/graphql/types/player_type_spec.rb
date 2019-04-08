@@ -1,5 +1,4 @@
 require 'rails_helper'
-require_relative '../../../app/controllers/graphql_controller'
 
 describe 'Player Query', type: :request do
   before(:each) do
@@ -82,6 +81,4 @@ describe 'Player Query', type: :request do
     expect(json[:data][:players][0][:name]).to_not eq("Billy Maddison")
     expect(json[:data][:players][0][:name]).to_not eq("Little Nicky")
   end
-
-
 end
