@@ -6,7 +6,15 @@ class PlayerStat < ApplicationRecord
   end
 
   def self.today_stats(rating, player_id)
-    (((Shot.where("shots.player_id = #{player_id} AND shots.rating = #{rating} AND shots.created_at >= CURRENT_DATE")).count).to_f / ((Shot.where("shots.player_id = #{player_id} AND shots.created_at >= CURRENT_DATE")).count) * 100).round
+    shots_data = get_today_data(rating, player_id)
+    (shots_data.first.shots_in_rating.to_f / shots_data.first.shots_for_table.to_f) * 100
+  end
+
+  def self.get_today_data(rating, player_id)
+    Shot.find_by_sql("SELECT
+                      SUM(CASE WHEN (shots.player_id = #{player_id} AND shots.rating = #{rating} AND shots.created_at >= CURRENT_DATE) THEN 1 ELSE 0 END) AS shots_in_rating,
+                      SUM(CASE WHEN (shots.player_id = #{player_id} AND shots.created_at >= CURRENT_DATE) THEN 1 ELSE 0 END) AS shots_for_table
+                      FROM shots")
   end
 
   def self.update_stats(player_id)
