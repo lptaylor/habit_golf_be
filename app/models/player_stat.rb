@@ -2,12 +2,20 @@ class PlayerStat < ApplicationRecord
   belongs_to :player
 
   def self.stats(rating, player_id)
-    (((Shot.where("shots.player_id = #{player_id} AND shots.rating = #{rating}")).count).to_f / (Shot.where(player_id: player_id)).count * 100).round
+    shot_data = get_all_data(rating, player_id)
+    ((shot_data.first.shots_in_rating.to_f / shot_data.first.shots_for_table.to_f) * 100).round
+  end
+
+  def self.get_all_data(rating, player_id)
+    Shot.find_by_sql("SELECT
+                      SUM(CASE WHEN (shots.player_id = #{player_id} AND shots.rating = #{rating}) THEN 1 ELSE 0 END) AS shots_in_rating,
+                      SUM(CASE WHEN (shots.player_id = #{player_id}) THEN 1 ELSE 0 END) AS shots_for_table
+                      FROM shots")
   end
 
   def self.today_stats(rating, player_id)
     shots_data = get_today_data(rating, player_id)
-    (shots_data.first.shots_in_rating.to_f / shots_data.first.shots_for_table.to_f) * 100
+    ((shots_data.first.shots_in_rating.to_f / shots_data.first.shots_for_table.to_f) * 100).round
   end
 
   def self.get_today_data(rating, player_id)
