@@ -4,15 +4,16 @@ Capstone Project at the Turing School of Software and Design. This is the backen
 ## Introduction
 Habit Golf is the capstone project for a team composed of members of both the  [Back-End Engineering Program](https://turing.io/programs/back-end-engineering/) and the [Front-End Engineering Program](https://turing.io/programs/front-end-engineering/) at the [Turing School of Software & Design](https://turing.io/). Habit Golf is a full-stack application built using a Rails API backend using GraphQL and a React frontend. [This repo](https://github.com/lptaylor/habit_golf_be) is the Habit Golf API. You can find the [frontend repo here](https://github.com/ericweissman/habit-golf-fe).
 
-[Deployed Frontend Site](ADD LINK LATER)
+[Deployed Frontend Site](https://habit-golf.herokuapp.com/)
 
 [Deployed Backend API](https://habit-golf-api.herokuapp.com/)
 
 [Scrum Board](https://waffle.io/lptaylor/habit_golf_be)
 
 ## Frontend Example
-TODO: ADD EXAMPLE LINK LATER
-![Habit Golf Main Page]()
+![Habit Golf Main Page](readme_images/main-splash.png)
+![Habit Golf Add Shot Page](readme_images/add-shot.png)
+![Habit Golf Player Statistics Page](readme_images/player-statistics.png)
 
 ## Initial Setup
 To install this project on your local machine:
