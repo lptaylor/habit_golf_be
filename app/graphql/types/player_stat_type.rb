@@ -13,11 +13,5 @@ module Types
     field :today_push_percentage, Float, null: true
     field :today_slice_percentage, Float, null: true
     field :today_duff_percentage, Float, null: true
-    field :week_hook_percentage, Float, null: true
-    field :week_pull_percentage, Float, null: true
-    field :week_great_shot_percentage, Float, null: true
-    field :week_push_percentage, Float, null: true
-    field :week_slice_percentage, Float, null: true
-    field :week_duff_percentage, Float, null: true
   end
 end
