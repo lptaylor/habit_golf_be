@@ -1,10 +1,5 @@
 module Types
   class QueryType < Types::BaseObject
-    # Add root-level fields here.
-    # They will be entry points for queries on your schema.
-    # GraphQL::Field.define do
-    #   argument :ids, types[types.ID]
-    # end
 
     field :players, [PlayerType], null: false do
       argument :ids, [Integer], required: false
